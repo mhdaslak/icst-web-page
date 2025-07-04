@@ -4,529 +4,307 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>International Campus of Science & Technology (ICST) - Sri Lanka</title>
-    
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
+
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
+    <!-- Custom Styles -->
     <style>
-        /* ============================================ */
-        /* GLOBAL STYLES & VARIABLES */
-        /* ============================================ */
+        /* Define custom color variables */
         :root {
-            --primary-color: #005A9E; /* Strong, professional blue */
-            --secondary-color: #E87722; /* A vibrant, energetic orange for CTAs */
-            --dark-grey: #333333;
-            --medium-grey: #555555;
-            --light-grey: #f4f7f6;
-            --white-color: #ffffff;
-            --font-family: 'Poppins', sans-serif;
+            --bs-primary-rgb: 0, 90, 158; /* #005A9E */
+            --bs-secondary-rgb: 232, 119, 34; /* #E87722 */
+            --bs-body-font-family: 'Poppins', sans-serif;
+            --bs-body-color: #555;
+            --bs-body-bg: #fff;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: var(--font-family);
-            line-height: 1.6;
-            color: var(--medium-grey);
-            background-color: var(--white-color);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        h1, h2, h3, h4 {
-            color: var(--dark-grey);
-            font-weight: 600;
-        }
-
-        h1 { font-size: 2.8rem; line-height: 1.2; }
-        h2 { font-size: 2.2rem; }
-        h3 { font-size: 1.4rem; }
-        h4 { font-size: 1.1rem; }
-
-        section {
-            padding: 80px 0;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .section-header h2 {
-            margin-bottom: 10px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 28px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-            cursor: pointer;
-        }
-
+        /* Override Bootstrap primary button colors for hover/active states */
         .btn-primary {
-            background-color: var(--secondary-color);
-            color: var(--white-color);
-            border-color: var(--secondary-color);
+            --bs-btn-bg: #E87722;
+            --bs-btn-border-color: #E87722;
+            --bs-btn-hover-bg: #d46c1e;
+            --bs-btn-hover-border-color: #d46c1e;
+            --bs-btn-active-bg: #c5621a;
+            --bs-btn-active-border-color: #c5621a;
+        }
+        
+        .btn-outline-light:hover {
+            color: #005A9E !important;
         }
 
-        .btn-primary:hover {
-            background-color: #d46c1e;
-            border-color: #d46c1e;
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--white-color);
-            border-color: var(--white-color);
-        }
-
-        .btn-secondary:hover {
-            background-color: var(--white-color);
-            color: var(--primary-color);
-        }
-
-
-        /* ============================================ */
-        /* HEADER & NAVIGATION */
-        /* ============================================ */
+        /* Custom styling for the header */
         .main-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
             background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            padding: 15px 0;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
-        .main-header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .navbar-brand img {
+            max-height: 45px;
         }
 
-        .logo img {
-            max-height: 45px; /* Control the size of your logo */
-            width: auto;
-        }
-
-        .main-nav {
-            display: none; /* Hidden on mobile */
-        }
-
-        .main-nav ul {
-            list-style: none;
-            display: flex;
-            gap: 35px;
-        }
-
-        .main-nav ul li a {
-            color: var(--dark-grey);
-            text-decoration: none;
-            font-weight: 500;
-            position: relative;
-            padding-bottom: 5px;
-        }
-
-        .main-nav ul li a:hover {
-            color: var(--primary-color);
-        }
-
-        .btn-apply-nav {
-            display: none; /* Hidden on mobile */
-            background-color: var(--primary-color);
-            color: var(--white-color);
-            padding: 10px 24px;
-        }
-        .btn-apply-nav:hover {
-            background-color: var(--secondary-color);
-        }
-
-        .mobile-nav-toggle {
-            display: block; /* Shown on mobile */
-            background: none;
-            border: none;
-            color: var(--dark-grey);
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-
-        /* ============================================ */
-        /* HERO SECTION - USES YOUR BACKGROUND PHOTO */
-        /* ============================================ */
+        /* Hero section styling */
         .hero-section {
             height: 90vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: var(--white-color); 
-            position: relative;
-            background-image: 
-                linear-gradient(rgba(87, 159, 241, 0.329), rgba(0, 5, 10, 0.918)),
-                url('https://media.licdn.com/dms/image/v2/D563DAQFSUwQzcwPlJw/image-scale_191_1128/image-scale_191_1128/0/1712123320555/icst_university_park_cover?e=2147483647&v=beta&t=viK0MNYQJ9XaI0gqnDwLb51R9pIlvJnn2qY_FAQJDgI'); /* Your background image */
+            min-height: 600px;
+            color: #fff;
+            background-image: linear-gradient(rgba(87, 159, 241, 0.329), rgba(0, 5, 10, 0.918)),
+                              url('https://media.licdn.com/dms/image/v2/D563DAQFSUwQzcwPlJw/image-scale_191_1128/image-scale_191_1128/0/1712123320555/icst_university_park_cover?e=2147483647&v=beta&t=viK0MNYQJ9XaI0gqnDwLb51R9pIlvJnn2qY_FAQJDgI');
             background-size: cover;
             background-position: center;
         }
 
-        .hero-content {
-            max-width: 800px;
-            padding: 0 20px;
-        }
-
-        .hero-content h1 {
-            color: var(--white-color);
-            font-size: 2.5rem;
-        }
-
-        .hero-content h1 strong {
-            color: var(--secondary-color);
+        .hero-section h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem); /* Responsive font size */
             font-weight: 700;
         }
 
-        .hero-content p {
-            font-size: 1.2rem;
-            margin: 20px 0 40px;
-            font-weight: 300;
+        .hero-section h1 strong {
+            color: #E87722;
         }
-
-        .hero-buttons .btn {
-            margin: 10px;
-        }
-
-        /* ============================================ */
-        /* ADVANTAGE SECTION */
-        /* ============================================ */
-        .advantage-section {
-            background-color: var(--white-color);
-        }
-        .advantage-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 40px;
-            text-align: center;
-        }
+        
+        /* Advantage section icons */
         .advantage-item i {
             font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-        }
-        .advantage-item h3 {
-            margin-bottom: 10px;
+            color: #005A9E;
         }
 
-        /* ============================================ */
-        /* INTAKE SECTION - USES YOUR INTAKE PHOTO */
-        /* ============================================ */
+        /* Intake section styling */
         .intake-section {
-            background-color: var(--light-grey);
-            padding: 60px 20px;
-            text-align: center;
+             background: linear-gradient(rgba(0,40,85,0.8), rgba(0,40,85,0.8)), url('https://z-p3-scontent.fcmb9-1.fna.fbcdn.net/v/t39.30808-6/470168953_122181344300132769_6950362846170517494_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=127cfc&_nc_ohc=LfUwKmOvxFEQ7kNvwENOBDX&_nc_oc=Adml1cetZ4Iy3zopO6U3cWZFwJJNX7HMwTlPcdT8L953iKIN-X1jyr3t2tIPrCDG-dQ&_nc_zt=23&_nc_ht=z-p3-scontent.fcmb9-1.fna&_nc_gid=giN4TV6jn7IXca_j7MRwYw&oh=00_AfPfSR1Qa7kFHIgz6YG9mpyUSOOOyqixcA5AwpY3KyzSHw&oe=6869CD55') center/cover no-repeat;
         }
-        .intake-section img {
-            max-width: 100%;
-            width: 800px; /* Control max width of the intake image */
-            height: auto;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-        .intake-section a:hover img {
-            transform: scale(1.03);
-        }
-
-        /* ============================================ */
-        /* PROGRAMS SECTION */
-        /* ============================================ */
-        .programs-section {
-            background-color: var(--white-color);
-        }
-        .program-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 30px;
-        }
+        
+        /* Program card styling */
         .program-card {
-            background: var(--light-grey);
-            border-radius: 10px;
             transition: all 0.3s ease;
-            border: 1px solid #e0e0e0;
-            border-left: 5px solid var(--primary-color);
+            border-left: 5px solid #005A9E;
         }
         .program-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-            border-left-color: var(--secondary-color);
+            border-left-color: #E87722;
         }
-        .card-content {
-            padding: 30px;
-        }
-        .card-content p {
-            margin: 10px 0 20px;
+        .program-card img {
+            height: 180px;
+            object-fit: cover;
         }
         .card-link {
-            color: var(--primary-color);
             text-decoration: none;
             font-weight: 600;
-        }
-        .card-link i {
-            margin-left: 5px;
-            transition: margin-left 0.3s ease;
+            color: #005A9E;
         }
         .card-link:hover {
-            color: var(--secondary-color);
+            color: #E87722;
+        }
+        .card-link i {
+            transition: margin-left 0.3s ease;
         }
         .card-link:hover i {
-            margin-left: 10px;
+            margin-left: 5px;
         }
-
-        /* ============================================ */
-        /* FOOTER */
-        /* ============================================ */
+        
+        /* Footer styling */
         .main-footer {
             background-color: #00070c;
+            color: #a9c2d7;
+        }
+        .main-footer h4 {
             color: #fff;
-            padding: 60px 0 0;
         }
-        .footer-logo {
-            max-height: 40px;
-            margin-bottom: 20px;
-            filter: brightness(0) invert(1);
-        }
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-        .footer-column h4 {
-            color: #ffffffe8;
-            margin-bottom: 20px;
-        }
-        .footer-column ul { list-style: none; }
-        .footer-column ul li { margin-bottom: 10px; }
-        .footer-column ul li a {
-            color: #a9c2d7;
+        .main-footer a {
             text-decoration: none;
+            color: #a9c2d7;
             transition: color 0.3s ease;
         }
-        .footer-column ul li a:hover { color: var(--secondary-color); }
+        .main-footer a:hover {
+            color: #E87722;
+        }
         .social-icons a {
-            color: #a9c2d7;
             font-size: 1.5rem;
-            margin-right: 20px;
-            transition: color 0.3s ease;
         }
         .social-icons a:hover {
-            /* Default fallback for other icons */
-            color: var(--secondary-color);
+            color: #E87722;
         }
-        .social-icons a[aria-label="Facebook"]:hover {
-            color: #1877F3;
-        }
-        .social-icons a[aria-label="LinkedIn"]:hover {
-            color: #0A66C2;
-        }
-        .social-icons a[aria-label="Instagram"]:hover {
-            color: #E4405F;
-        }
+        .social-icons a[aria-label="Facebook"]:hover { color: #1877F3; }
+        .social-icons a[aria-label="LinkedIn"]:hover { color: #0A66C2; }
+        .social-icons a[aria-label="Instagram"]:hover { color: #E4405F; }
+        
         .footer-bottom {
-            border-top: 1px solid #e0e0e0;
-            background: var(--primary-color);
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
-            font-size: 0.9rem;
+            background-color: #005A9E;
         }
 
-
-        /* ============================================ */
-        /* RESPONSIVE STYLES (TABLET & UP) */
-        /* ============================================ */
-        @media (min-width: 768px) {
-            h1, .hero-content h1 { font-size: 3.2rem; }
-            .advantage-grid { grid-template-columns: repeat(2, 1fr); }
-            .program-grid { grid-template-columns: repeat(2, 1fr); }
-            .footer-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-
-
-        /* ============================================ */
-        /* RESPONSIVE STYLES (DESKTOP & UP) */
-        /* ============================================ */
-        @media (min-width: 1024px) {
-            h1, .hero-content h1 { font-size: 4rem; }
-            .mobile-nav-toggle { display: none; }
-            .main-nav { display: block; }
-            .btn-apply-nav { display: inline-block; }
-            .advantage-grid { grid-template-columns: repeat(4, 1fr); }
-            .program-grid { grid-template-columns: repeat(3, 1fr); }
-            .footer-grid { grid-template-columns: repeat(4, 1fr); }
-        }
     </style>
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        var form = document.querySelector('.application-container form');
-        if(form) {
-          form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            form.innerHTML = '<div style="text-align:center;padding:30px 0;color:#005A9E;font-size:1.2rem;">Thank you for your application!<br>We will contact you soon.</div>';
-          });
-        }
-      });
-    </script>
 </head>
 <body>
 
-    <header class="main-header">
-        <div class="container">
-            <a href="#" class="logo">
-                <img src="https://icst.edu.lk/wp-content/uploads/2023/11/ICST-Logo-Final-Horizontal@4x-1024x432.png" alt="ICST University Logo">
-            </a>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="#programs">Programs</a></li>
-                    <li><a href="#intake">Admissions</a></li>
-                    <li><a href="#">Student Life</a></li>
-                    <li><a href="#">About ICST</a></li>
-                </ul>
-            </nav>
-            <a href="#intake" class="btn btn-apply-nav">Apply Now</a>
-            <button class="mobile-nav-toggle" aria-label="Toggle navigation">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
+    <!-- Header -->
+    <header class="main-header fixed-top">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="https://icst.edu.lk/wp-content/uploads/2023/11/ICST-Logo-Final-Horizontal@4x-1024x432.png" alt="ICST University Logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="mainNav">
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="#programs">Programs</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#intake">Admissions</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Student Life</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">About ICST</a></li>
+                    </ul>
+                    <a href="#intake" class="btn btn-outline-primary d-none d-lg-inline-block" style="--bs-btn-border-color: #005A9E; --bs-btn-color: #005A9E; --bs-btn-hover-bg: #005A9E; --bs-btn-hover-color: #fff;">Apply Now</a>
+                </div>
+            </div>
+        </nav>
     </header>
 
     <main>
-        <section class="hero-section">
-            <div class="hero-content">
-                <h1>Your Future in Science & Technology. <strong>Realized.</strong></h1>
-                <p>Job-focused degrees that equip you with the skills for tomorrow's industries in Sri Lanka.</p>
-                <div class="hero-buttons">
-                    <a href="#programs" class="btn btn-primary">Explore Our Programs</a>
-                    <a href="#" class="btn btn-secondary">Request Info</a>
+        <!-- Hero Section -->
+        <section class="hero-section d-flex align-items-center justify-content-center text-center">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Your Future in Science & Technology. <strong>Realized.</strong></h1>
+                    <p class="lead my-4">Job-focused degrees that equip you with the skills for tomorrow's industries in Sri Lanka.</p>
+                    <div class="hero-buttons">
+                        <a href="#programs" class="btn btn-primary btn-lg mx-2 my-2">Explore Our Programs</a>
+                        <a href="#" class="btn btn-outline-light btn-lg mx-2 my-2">Request Info</a>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="advantage" class="advantage-section">
+        <!-- Advantage Section -->
+        <section id="advantage" class="advantage-section py-5">
             <div class="container">
-                <div class="section-header">
-                    <h2>The ICST Advantage</h2>
+                <div class="section-header text-center mb-5">
+                    <h2 class="fw-bold">The ICST Advantage</h2>
                 </div>
-                <div class="advantage-grid">
-                    <div class="advantage-item">
-                        <i class="fas fa-briefcase"></i>
-                        <h3>Career-Focused Curriculum</h3>
-                        <p>Graduate with a portfolio of real-world projects and in-demand skills.</p>
+                <div class="row g-4 text-center">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="advantage-item">
+                            <i class="fas fa-briefcase mb-3"></i>
+                            <h3 class="h5 fw-bold">Career-Focused Curriculum</h3>
+                            <p>Graduate with a portfolio of real-world projects and in-demand skills.</p>
+                        </div>
                     </div>
-                    <div class="advantage-item">
-                        <i class="fas fa-handshake"></i>
-                        <h3>Strong Industry Links</h3>
-                        <p>Internships and networking with leading tech and business companies.</p>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="advantage-item">
+                            <i class="fas fa-handshake mb-3"></i>
+                            <h3 class="h5 fw-bold">Strong Industry Links</h3>
+                            <p>Internships and networking with leading tech and business companies.</p>
+                        </div>
                     </div>
-                    <div class="advantage-item">
-                        <i class="fas fa-graduation-cap"></i>
-                        <h3>Affordable Excellence</h3>
-                        <p>Quality education made accessible through scholarships and flexible payment plans.</p>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="advantage-item">
+                            <i class="fas fa-graduation-cap mb-3"></i>
+                            <h3 class="h5 fw-bold">Affordable Excellence</h3>
+                            <p>Quality education made accessible through scholarships and flexible payment plans.</p>
+                        </div>
                     </div>
-                    <div class="advantage-item">
-                        <i class="fas fa-globe"></i>
-                        <h3>Global Recognition</h3>
-                        <p>Internationally recognized qualifications that open doors worldwide.</p>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="advantage-item">
+                            <i class="fas fa-globe mb-3"></i>
+                            <h3 class="h5 fw-bold">Global Recognition</h3>
+                            <p>Internationally recognized qualifications that open doors worldwide.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
         
-        <section id="intake" class="intake-section" style="background: linear-gradient(rgba(0,40,85,0.7), rgba(0,40,85,0.7)), url('https://z-p3-scontent.fcmb9-1.fna.fbcdn.net/v/t39.30808-6/470168953_122181344300132769_6950362846170517494_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=127cfc&_nc_ohc=LfUwKmOvxFEQ7kNvwENOBDX&_nc_oc=Adml1cetZ4Iy3zopO6U3cWZFwJJNX7HMwTlPcdT8L953iKIN-X1jyr3t2tIPrCDG-dQ&_nc_zt=23&_nc_ht=z-p3-scontent.fcmb9-1.fna&_nc_gid=giN4TV6jn7IXca_j7MRwYw&oh=00_AfPfSR1Qa7kFHIgz6YG9mpyUSOOOyqixcA5AwpY3KyzSHw&oe=6869CD55') center/cover no-repeat; padding: 80px 0;">
+        <!-- Intake Section -->
+        <section id="intake" class="intake-section py-5">
             <div class="container">
-                <div class="application-container" style="max-width:900px;margin:0 auto;background:#fff;border-radius:15px;box-shadow:0 8px 32px rgba(0,0,0,0.15);padding:60px 40px;">
-                    <h2 style="text-align:center;color:#005A9E;margin-bottom:40px;font-size:2.2rem;">ICST Application Form</h2>
-                    <form>
-                        <div style="display:flex;gap:30px;flex-wrap:wrap;">
-                            <div style="flex:1 1 300px;min-width:250px;">
-                                <label for="fullname">Full Name</label>
-                                <input type="text" id="fullname" name="fullname" required style="width:100%;padding:14px;font-size:1.1rem;margin-bottom:20px;">
-
-                                <label for="email">Email Address</label>
-                                <input type="email" id="email" name="email" required style="width:100%;padding:14px;font-size:1.1rem;margin-bottom:20px;">
-
-                                <label for="phone">Phone Number</label>
-                                <input type="tel" id="phone" name="phone" required style="width:100%;padding:14px;font-size:1.1rem;margin-bottom:20px;">
+                <div class="application-container card p-4 p-md-5 shadow-lg border-0" style="max-width:900px; margin:0 auto;">
+                    <h2 class="text-center fw-bold mb-4" style="color:#005A9E;">ICST Application Form</h2>
+                    <form id="applicationForm">
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="fullname" class="form-label">Full Name</label>
+                                    <input type="text" class="form-control form-control-lg" id="fullname" name="fullname" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email Address</label>
+                                    <input type="email" class="form-control form-control-lg" id="email" name="email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="phone" class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control form-control-lg" id="phone" name="phone" required>
+                                </div>
                             </div>
-                            <div style="flex:1 1 300px;min-width:250px;">
-                                <label for="program">Program of Interest</label>
-                                <select id="program" name="program" required style="width:100%;padding:14px;font-size:1.1rem;margin-bottom:20px;">
-                                    <option value="">Select a program</option>
-                                    <option value="software">BSc (Hons) in Software Engineering</option>
-                                    <option value="cyber">BSc (Hons) in Cyber Security</option>
-                                    <option value="business">Higher Diploma in Business Management</option>
-                                </select>
-
-                                <label for="message">Additional Message</label>
-                                <textarea id="message" name="message" rows="7" placeholder="Your message (optional)" style="width:100%;padding:14px;font-size:1.1rem;"></textarea>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="program" class="form-label">Program of Interest</label>
+                                    <select class="form-select form-select-lg" id="program" name="program" required>
+                                        <option value="" selected disabled>Select a program...</option>
+                                        <option value="software">BSc (Hons) in Software Engineering</option>
+                                        <option value="cyber">BSc (Hons) in Cyber Security</option>
+                                        <option value="business">Higher Diploma in Business Management</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="message" class="form-label">Additional Message</label>
+                                    <textarea class="form-control form-control-lg" id="message" name="message" rows="5" placeholder="Your message (optional)"></textarea>
+                                </div>
                             </div>
                         </div>
-                        <button type="submit" style="width:100%;padding:18px;background:#005A9E;color:#fff;border:none;border-radius:7px;font-size:1.2rem;font-weight:700;cursor:pointer;transition:background 0.2s;margin-top:30px;">Submit Application</button>
+                        <div class="d-grid mt-4">
+                            <button type="submit" class="btn btn-lg fw-bold" style="background-color:#005A9E; color:white;">Submit Application</button>
+                        </div>
                     </form>
                 </div>
             </div>
         </section>
 
-        <section id="programs" class="programs-section">
+        <!-- Programs Section -->
+        <section id="programs" class="programs-section py-5 bg-light">
             <div class="container">
-                <div class="section-header">
-                    <h2>Find Your Path</h2>
-                    <p>Discover the program that will launch your career.</p>
+                <div class="section-header text-center mb-5">
+                    <h2 class="fw-bold">Find Your Path</h2>
+                    <p class="lead">Discover the program that will launch your career.</p>
                 </div>
-                <div class="program-grid">
-                    <div class="program-card">
-                        <img src="https://www.simplilearn.com/ice9/free_resources_article_thumb/cyber_security_vs_software_engineering.jpg" alt="BSc (Hons) in Software Engineering" style="width:100%;border-radius:10px 10px 0 0;max-height:180px;object-fit:cover;">
-                        <div class="card-content">
-                            <h4>BSc (Hons) in Software Engineering</h4>
-                            <p>Build robust, scalable software solutions and become a leader in the tech industry.</p>
-                            <a href="#" class="card-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 program-card border-0 shadow-sm">
+                            <img src="https://www.simplilearn.com/ice9/free_resources_article_thumb/cyber_security_vs_software_engineering.jpg" class="card-img-top" alt="Software Engineering">
+                            <div class="card-body p-4">
+                                <h4 class="card-title h5 fw-bold">BSc (Hons) in Software Engineering</h4>
+                                <p class="card-text">Build robust, scalable software solutions and become a leader in the tech industry.</p>
+                                <a href="#" class="card-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                            </div>
                         </div>
                     </div>
-                    <div class="program-card">
-                        <img src="https://safety-committee.org/images/292.jpg" alt="BSc (Hons) in Cyber Security" style="width:100%;border-radius:10px 10px 0 0;max-height:180px;object-fit:cover;">
-                        <div class="card-content">
-                            <h4>BSc (Hons) in Cyber Security</h4>
-                            <p>Protect digital assets and combat cyber threats with cutting-edge techniques.</p>
-                            <a href="#" class="card-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 program-card border-0 shadow-sm">
+                            <img src="https://safety-committee.org/images/292.jpg" class="card-img-top" alt="Cyber Security">
+                            <div class="card-body p-4">
+                                <h4 class="card-title h5 fw-bold">BSc (Hons) in Cyber Security</h4>
+                                <p class="card-text">Protect digital assets and combat cyber threats with cutting-edge techniques.</p>
+                                <a href="#" class="card-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                            </div>
                         </div>
                     </div>
-                    <div class="program-card">
-                        <img src="https://studyway-resources.s3.amazonaws.com/blogs/1727964119926.jpg" alt="BSc (Hons) in Data Science" style="width:100%;border-radius:10px 10px 0 0;max-height:180px;object-fit:cover;"> 
-                        <div class="card-content">
-                            <h4>Higher Diploma in Business Management</h4>
-                            <p>Gain the essential skills in marketing, finance, and management for business success.</p>
-                            <a href="#" class="card-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 program-card border-0 shadow-sm">
+                            <img src="https://studyway-resources.s3.amazonaws.com/blogs/1727964119926.jpg" class="card-img-top" alt="Business Management">
+                            <div class="card-body p-4">
+                                <h4 class="card-title h5 fw-bold">Higher Diploma in Business Management</h4>
+                                <p class="card-text">Gain the essential skills in marketing, finance, and management for business success.</p>
+                                <a href="#" class="card-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -534,40 +312,61 @@
         </section>
     </main>
 
-    <footer class="main-footer">
+    <!-- Footer -->
+    <footer class="main-footer pt-5">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-column">
-                    <p>ICST, University Park, <br>punanai
-                        , Sri Lanka.</p>
+            <div class="row gy-4">
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="h6 fw-bold">ICST University Park</h4>
+                    <p>University Park,<br>Punanai, Sri Lanka.</p>
+                    <p>A premier institution for Science & Technology education.</p>
                 </div>
-                <div class="footer-column">
-                    <h4>Quick Links</h4>
-                    <ul>
+                <div class="col-lg-2 col-md-6">
+                    <h4 class="h6 fw-bold">Quick Links</h4>
+                    <ul class="list-unstyled">
                         <li><a href="#">About Us</a></li>
                         <li><a href="#intake">Admissions</a></li>
                         <li><a href="#">News & Events</a></li>
+                        <li><a href="#programs">Programs</a></li>
                     </ul>
                 </div>
-                <div class="footer-column">
-                    <h4>Contact</h4>
-                    <p><strong>Phone:</strong> +94 74 3444 444</p>
-                    <p><strong>Email:</strong> admissions@icst.edu.lk</p>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="h6 fw-bold">Contact</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><strong>Phone:</strong> <a href="tel:+94743444444">+94 74 3444 444</a></li>
+                        <li class="mb-2"><strong>Email:</strong> <a href="mailto:admissions@icst.edu.lk">admissions@icst.edu.lk</a></li>
+                    </ul>
                 </div>
-                <div class="footer-column">
-                    <h4>Connect With Us</h4>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="h6 fw-bold">Connect With Us</h4>
                     <div class="social-icons">
-                        <a href="https://web.facebook.com/icst.universitypark/videos/icst-open-week-2025-your-future-begins-here-/28446685874975493/?_rdc=1&_rdr" aria-label="Facebook" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://lk.linkedin.com/school/icst-university-park/" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://www.instagram.com/reel/DFm1ho4IjS7/?utm_source=ig_web_copy_link" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+                        <a href="https://web.facebook.com/icst.universitypark/" aria-label="Facebook" target="_blank" rel="noopener" class="me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://lk.linkedin.com/school/icst-university-park/" aria-label="LinkedIn" target="_blank" rel="noopener" class="me-3"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/icst.universitypark/" aria-label="Instagram" target="_blank" rel="noopener" class="me-3"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 International Campus of Science & Technology. All Rights Reserved.</p>
-            </div>
+        </div>
+        <div class="footer-bottom text-center text-white py-3 mt-4">
+            <p class="mb-0">&copy; 2025 International Campus of Science & Technology. All Rights Reserved.</p>
         </div>
     </footer>
 
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
+    <!-- Form Submission Script -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var form = document.getElementById('applicationForm');
+        var formContainer = document.querySelector('.application-container');
+        if(form) {
+          form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            formContainer.innerHTML = '<div class="text-center p-5"><h3 class="fw-bold" style="color:#005A9E;">Thank you for your application!</h3><p class="lead">We have received your submission and will contact you soon.</p></div>';
+          });
+        }
+      });
+    </script>
 </body>
 </html>
